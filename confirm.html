@@ -20,22 +20,52 @@
         </div>
     </nav>
 
-<div class="row pb-5 p-5">
-    <div class="col-md-6">
-        <p class="font-weight-bold mb-4">Client Information</p>
-        <p class="mb-1">John Doe, Mrs Emma Downson</p>
-        <p>Acme Inc</p>
-        <p class="mb-1">Berlin, Germany</p>
-        <p class="mb-1">6781 45P</p>
-    </div>
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-center m-auto">
+                <form class="form-horizontal  " method="post" action="#">
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label ">Nom</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="name" id="name"  placeholder="Votre nom"/>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="col-md-6 text-right">
-        <p class="font-weight-bold mb-4">Payment Details</p>
-        <p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
-        <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>
-        <p class="mb-1"><span class="text-muted">Payment Type: </span> Root</p>
-        <p class="mb-1"><span class="text-muted">Name: </span> John Doe</p>
+                    <div class="form-group">
+                        <label for="surname" class="cols-sm-2 control-label">Prénom</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="surname" id="surname"  placeholder="Votre prénom"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mail" class="cols-sm-2 control-label">Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="mail" id="mail"  placeholder="Votre email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adress" class="cols-sm-2 control-label">Adresse</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="adress" class="form-control" name="adress" id="adress"  placeholder="Votre adresse"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <a class="btn btn-primary" href="recap.html" role="button">Valider</a>
+                    
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>
