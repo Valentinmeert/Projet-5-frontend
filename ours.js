@@ -2,6 +2,7 @@ var imgElt = document.getElementsByClassName("card-img-top");
 const priceElt = document.getElementsByClassName('price');
 const cardTextElt = document.getElementsByClassName('card-text');
 const cardNameElt = document.getElementsByClassName('addCart');
+
 console.log(imgElt);
 var requestTeddies = new XMLHttpRequest();
 requestTeddies.onreadystatechange = function() {
@@ -10,12 +11,10 @@ requestTeddies.onreadystatechange = function() {
         console.log(response);
         for (let i=0; i < imgElt.length; i++){
             imgElt[i].setAttribute('src' , response[i].imageUrl);
-            priceElt[i].textContent = response[i].price;
+            priceElt[i].textContent = response[i].price / 100;
             cardTextElt[i].textContent = response[i].description;
             cardNameElt[i].textContent = response[i].name;
         }
-        
-        
     }
 }
 
