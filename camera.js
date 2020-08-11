@@ -23,3 +23,23 @@ requestCameras.onreadystatechange = function() {
 
 requestCameras.open("GET", "http://localhost:3000/api/cameras");
 requestCameras.send();
+
+let carts = document.querySelectorAll('.addCart');
+
+
+for (let i=0; i<carts.length; i++) {
+    carts[i].addEventListener('click', () => {
+    cameraNumbers();
+    })
+}
+
+function cameraNumbers() {
+    let productNumbers = localStorage.getItem('cameraNumbers');
+    productNumbers = parseInt(productNumbers);
+    if(productNumbers){
+        localStorage.setItem('cameraNumbers', productNumbers + 1);
+    }
+    else {
+        localStorage.setItem('cameraNumbers' , 1);
+    }
+}
