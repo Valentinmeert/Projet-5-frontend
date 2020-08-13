@@ -13,6 +13,10 @@ requestCameras.onreadystatechange = function() {
             priceElt[i].textContent = response[i].price / 100;
             cardTextElt[i].textContent = response[i].description;
             cardNameElt[i].textContent = response[i].name;
+            localStorage.setItem('idCamera' + (i + 5), response[i]._id);
+            localStorage.setItem('nameCamera' + (i + 5), response[i].name);
+            localStorage.setItem('unityCost' + (i + 5), response[i].price / 100);
+            cardNameElt[i].textContent = response[i].name;
         }
         
         
@@ -29,17 +33,64 @@ let carts = document.querySelectorAll('.addCart');
 
 for (let i=0; i<carts.length; i++) {
     carts[i].addEventListener('click', () => {
-    cameraNumbers();
+    cameraNumbers(i);
     })
 }
 
-function cameraNumbers() {
-    let productNumbers = localStorage.getItem('cameraNumbers');
-    productNumbers = parseInt(productNumbers);
-    if(productNumbers){
-        localStorage.setItem('cameraNumbers', productNumbers + 1);
+function cameraNumbers(x) {
+    if(x==0){
+        let countCamera = localStorage.getItem('camera' + x);
+        countCamera = parseInt(countCamera);
+    if(countCamera){
+        localStorage.setItem('camera' + x , countCamera + 1);
     }
     else {
-        localStorage.setItem('cameraNumbers' , 1);
+        localStorage.setItem('camera' + x , 1);
     }
+    }
+
+    if(x==1){
+        let countCamera = localStorage.getItem('camera' + x);
+        countCamera = parseInt(countCamera);
+        if(countCamera){
+            localStorage.setItem('camera' + x , countCamera + 1);
+        }
+        else {
+            localStorage.setItem('camera' + x , 1);
+        }
+    }
+
+    if(x==2){
+        let countCamera = localStorage.getItem('camera' + x);
+        countCamera = parseInt(countCamera);
+        if(countCamera){
+            localStorage.setItem('camera' + x , countCamera + 1);
+        }
+        else {
+            localStorage.setItem('camera' + x , 1);
+        }
+    }
+
+    if(x==3){
+        let countCamera = localStorage.getItem('camera' + x);
+        countCamera = parseInt(countCamera);
+        if(countCamera){
+            localStorage.setItem('camera' + x , countCamera + 1);
+        }
+        else {
+            localStorage.setItem('camera' + x , 1);
+        }
+    }
+
+    if(x==4){
+        let countCamera = localStorage.getItem('camera' + x);
+        countCamera = parseInt(countCamera);
+        if(countCamera){
+            localStorage.setItem('camera' + x , countCamera + 1);
+        }
+        else {
+            localStorage.setItem('camera' + x , 1);
+        }
+    }
+    
 }

@@ -1,36 +1,18 @@
 var imgElt = document.getElementsByClassName("card-img-top");
 console.log(imgElt);
-var requestTeddies = new XMLHttpRequest();
-requestTeddies.onreadystatechange = function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
-        var response = JSON.parse(this.responseText);
-        console.log(response);
-        imgElt[0].setAttribute('src' , response[0].imageUrl);
-        
-    }
-}
+const categories = ["teddies" , "cameras" , "furniture"];
+categories.forEach(function(category , index){
+    fetcher('GET' , "http://localhost:3000/api/" + category , function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
+            var response = JSON.parse(this.responseText);
+            imgElt[index].setAttribute('src' , response[0].imageUrl);
+        }
+    });
+})
 
-var requestCameras = new XMLHttpRequest();
-requestCameras.onreadystatechange = function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
-        var response = JSON.parse(this.responseText);
-        console.log(response); 
-        imgElt[1].setAttribute('src' , response[0].imageUrl);
-    }
+function fetcher(method , url , callBack) {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = callBack;
+    request.open(method , url);
+    request.send();
 }
-
-var requestFurniture = new XMLHttpRequest();
-requestFurniture.onreadystatechange = function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
-        var response = JSON.parse(this.responseText);
-        console.log(response); 
-        imgElt[2].setAttribute('src' , response[0].imageUrl);
-    }
-}
-
-requestTeddies.open("GET", "http://localhost:3000/api/teddies");
-requestTeddies.send();
-requestCameras.open("GET", "http://localhost:3000/api/cameras");
-requestCameras.send(); 
-requestFurniture.open("GET", "http://localhost:3000/api/furniture");
-requestFurniture.send(); 
