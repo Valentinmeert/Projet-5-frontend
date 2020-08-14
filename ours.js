@@ -13,6 +13,7 @@ requestTeddies.onreadystatechange = function() {
         console.log(response);
         for (let i=0; i < imgElt.length; i++){
             imgElt[i].setAttribute('src' , response[i].imageUrl);
+            localStorage.setItem('imgTeddies' + i, response[i].imageUrl);
             priceElt[i].textContent = response[i].price / 100;
             cardTextElt[i].textContent = response[i].description;
             localStorage.setItem('idTeddies' + i , response[i]._id);
@@ -23,7 +24,6 @@ requestTeddies.onreadystatechange = function() {
     }
 }
 
-
 requestTeddies.open("GET", "http://localhost:3000/api/teddies");
 requestTeddies.send();
 
@@ -31,67 +31,14 @@ let carts = document.querySelectorAll('.addCart');
 
 for (let i=0; i<carts.length; i++) {
     carts[i].addEventListener('click', () => {
-    teddiesNumbers(i);
+    teddiesSelect(i);
     })
 }
 
-function teddiesNumbers(x) {
-    if(x==0){
-        let countTeddies = localStorage.getItem('teddies' + x);
-        countTeddies = parseInt(countTeddies);
-    if(countTeddies){
-        localStorage.setItem('teddies' + x , countTeddies + 1);
-    }
-    else {
-        localStorage.setItem('teddies' + x , 1);
-    }
-    }
 
-    if(x==1){
-        let countTeddies = localStorage.getItem('teddies' + x);
-        countTeddies = parseInt(countTeddies);
-        if(countTeddies){
-            localStorage.setItem('teddies' + x , countTeddies + 1);
-        }
-        else {
-            localStorage.setItem('teddies' + x , 1);
-        }
-    }
-
-    if(x==2){
-        let countTeddies = localStorage.getItem('teddies' + x);
-        countTeddies = parseInt(countTeddies);
-        if(countTeddies){
-            localStorage.setItem('teddies' + x , countTeddies + 1);
-        }
-        else {
-            localStorage.setItem('teddies' + x , 1);
-        }
-    }
-
-    if(x==3){
-        let countTeddies = localStorage.getItem('teddies' + x);
-        countTeddies = parseInt(countTeddies);
-        if(countTeddies){
-            localStorage.setItem('teddies' + x , countTeddies + 1);
-        }
-        else {
-            localStorage.setItem('teddies' + x , 1);
-        }
-    }
-
-    if(x==4){
-        let countTeddies = localStorage.getItem('teddies' + x);
-        countTeddies = parseInt(countTeddies);
-        if(countTeddies){
-            localStorage.setItem('teddies' + x , countTeddies + 1);
-        }
-        else {
-            localStorage.setItem('teddies' + x , 1);
-        }
-    }
-    
-}
+function teddiesSelect(x) {
+    localStorage.setItem('teddiesSelect' , x);
+};
 
 
 

@@ -23,16 +23,29 @@
 </nav>
 
 <div class="card w-50 m-auto">
-<img class="card-img-top" src="http://placehold.it/700x400" alt="">
+<img class="card-img" src="http://placehold.it/700x400" alt="">
     <div class="card-body">
         <form method="get" action="cart.html">
             <div class="form-group">
                 <label for="colors">Personnalisation</label>
                 <select class="custom-select" id="colors">
-                    <option selected>Selectionner</option>
-                    <option value="1">Perso 1</option>
-                    <option value="2">Perso 2</option>
-                    <option value="3">Perso 3</option>
+                    <option selected>Personnalisation</option>
+                    <option class="perso">Perso 1</option>
+                    <option class="perso">Perso 2</option>
+                    <option class="perso">Perso 3</option>
+                    <option class="perso">Perso 4</option>
+                    <option class="perso">Perso 5</option>
+                </select>
+                <select class="custom-select" id="quantity">
+                    <option selected>Quantité</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
                 </select>
             </div>
             <a href="cart.html" class="btn btn-success btn-lg btn-block text-uppercase">
@@ -47,6 +60,9 @@
     <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
     </div>
 </footer>
+<script src="main.js"></script>
+<script src="product.js"></script>
+
 </body>
 
 
