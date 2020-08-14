@@ -36,8 +36,8 @@ requestTeddies.send();
 
     customElt.addEventListener('change', () => {
         
-        var custom = customElt.selectedIndex;
-        localStorage.setItem('colors' , custom);
+        var custom = customElt.options[customElt.selectedIndex].text;
+        localStorage.setItem('colors' + indice , custom);
         console.log(custom);
         
     })

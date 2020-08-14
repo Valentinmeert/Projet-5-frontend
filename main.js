@@ -4,6 +4,7 @@ var nameItemElt = document.getElementsByClassName('nameItem');
 var unityCostElt = document.getElementsByClassName('unityCost');
 var totalCostElt = document.getElementsByClassName('totalCost');
 var totalCartElt = document.getElementsByClassName('totalCart');
+var customItemElt = document.getElementsByClassName('custom');
 var sumTeddies = sumCamera = sumFurniture = 0;
 var i =localStorage.getItem('teddiesSelect');
 
@@ -14,6 +15,7 @@ localStorage.setItem('quantity' + i , localStorage.getItem('quantity'));
     nameItemElt[i].textContent = localStorage.getItem('nameTeddies' + i);
     unityCostElt[i].textContent = localStorage.getItem('unityCost' + i);
     totalCostElt[i].textContent = localStorage.getItem('unityCost' + i) * localStorage.getItem('quantity' + i);
+    customItemElt[i].textContent = localStorage.getItem('colors' + i); 
 
 
 
@@ -23,6 +25,7 @@ for(x=0 ; x<5 ; x++){
     idItemElt[x].textContent = localStorage.getItem('idTeddies' + x);
     nameItemElt[x].textContent = localStorage.getItem('nameTeddies' + x);
     unityCostElt[x].textContent = localStorage.getItem('unityCost' + x);
+    customItemElt[x].textContent = localStorage.getItem('colors' + x); 
     totalCostElt[x].textContent = localStorage.getItem('unityCost' + x) * localStorage.getItem('quantity' + x);
     sumTeddies = sumTeddies + parseInt(localStorage.getItem('unityCost' + x) * localStorage.getItem('quantity' + x));
 
