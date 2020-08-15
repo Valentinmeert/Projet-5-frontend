@@ -10,6 +10,15 @@ console.log(btnElt);
 var colorTab = [];
 var lensesTab = [];
 
+function createRow() {
+var option = document.createElement("option");
+const currentOption = document.getElementById("colors") ;
+currentOption.appendChild(option);
+option.className = "perso";
+}
+
+
+
 if(localStorage.getItem('categoryItem') == "teddie"){
 
     var requestTeddies = new XMLHttpRequest();
@@ -18,10 +27,10 @@ if(localStorage.getItem('categoryItem') == "teddie"){
             var response = JSON.parse(this.responseText);
             for (let i=0; i < response.length; i++){
                 colorTab[i] = response[i].colors;
+                createRow();
             }
             let perso = document.getElementById("colors").getElementsByClassName("perso");
                 for(x=0 ; x<colorTab[indiceTeddies].length ; x++)  {
-                    
                     perso[x].textContent = colorTab[indiceTeddies][x];
                 }
         }
@@ -68,6 +77,7 @@ if(localStorage.getItem('categoryItem') == "camera"){
             var response = JSON.parse(this.responseText);
             for (let i=0; i < response.length; i++){
                 lensesTab[i] = response[i].lenses;
+                createRow();
             }
             let perso = document.getElementById("colors").getElementsByClassName("perso");
             
@@ -107,6 +117,8 @@ if(localStorage.getItem('categoryItem') == "camera"){
         }
         
         })
+
+
 
 }
 

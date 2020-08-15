@@ -38,7 +38,7 @@ const panier=
         quantity: localStorage.getItem('quantityCamera'), 
         category: localStorage.getItem('categoryItem'),
         _id: localStorage.getItem('idCamera' + j),
-        value: localStorage.getItem('colorsCamera' + j),
+        value: localStorage.getItem('colorCamera' + j),
         unitPrice: localStorage.getItem('cameraUnityCost' + j),
         totalPrice: localStorage.getItem('cameraUnityCost' + j) * localStorage.getItem('quantityCamera')
     }
