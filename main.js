@@ -6,53 +6,82 @@ var totalCostElt = document.getElementsByClassName('totalCost');
 var totalCartElt = document.getElementsByClassName('totalCart');
 var customItemElt = document.getElementsByClassName('custom');
 var sumTeddies = sumCamera = sumFurniture = 0;
-var i =localStorage.getItem('teddiesSelect');
+var i = localStorage.getItem('teddiesSelect');
+var j = localStorage.getItem('cameraSelect');
 
-localStorage.setItem('quantity' + i , localStorage.getItem('quantity'));
+if(localStorage.getItem("categoryItem") == "teddie")
+{
 
-    quantityItemsElt[i].textContent = localStorage.getItem('quantity' + i);
-    idItemElt[i].textContent = localStorage.getItem('idTeddies' + i);
-    nameItemElt[i].textContent = localStorage.getItem('nameTeddies' + i);
-    unityCostElt[i].textContent = localStorage.getItem('unityCost' + i);
-    totalCostElt[i].textContent = localStorage.getItem('unityCost' + i) * localStorage.getItem('quantity' + i);
-    customItemElt[i].textContent = localStorage.getItem('colors' + i); 
+const panier=
+{
+    detail: {
+        name: localStorage.getItem('nameTeddies' + i),
+        quantity: localStorage.getItem('quantityTeddies'), 
+        category: localStorage.getItem('categoryItem'),
+        _id: localStorage.getItem('idTeddies' + i),
+        value: localStorage.getItem('colorsTeddies' + i),
+        unitPrice: localStorage.getItem('unityCost' + i),
+        totalPrice: localStorage.getItem('unityCost' + i) * localStorage.getItem('quantityTeddies')
+    }
+}
+
+localStorage.setItem('panier' + localStorage.getItem('itemNumbers'), JSON.stringify(panier));
+
+}
+
+if(localStorage.getItem("categoryItem") == "camera")
+{
+const panier=
+{
+    detail: {
+        name: localStorage.getItem('nameCamera' + j),
+        quantity: localStorage.getItem('quantityCamera'), 
+        category: localStorage.getItem('categoryItem'),
+        _id: localStorage.getItem('idCamera' + j),
+        value: localStorage.getItem('colorsCamera' + j),
+        unitPrice: localStorage.getItem('cameraUnityCost' + j),
+        totalPrice: localStorage.getItem('cameraUnityCost' + j) * localStorage.getItem('quantityCamera')
+    }
+}
 
 
+localStorage.setItem('panier' + localStorage.getItem('itemNumbers'), JSON.stringify(panier));
 
-for(x=0 ; x<5 ; x++){ 
+}
+
+
+for(x=1; x<=localStorage.getItem('itemNumbers') ; x++){
     
-    quantityItemsElt[x].textContent = localStorage.getItem('quantity' + x);
-    idItemElt[x].textContent = localStorage.getItem('idTeddies' + x);
-    nameItemElt[x].textContent = localStorage.getItem('nameTeddies' + x);
-    unityCostElt[x].textContent = localStorage.getItem('unityCost' + x);
-    customItemElt[x].textContent = localStorage.getItem('colors' + x); 
-    totalCostElt[x].textContent = localStorage.getItem('unityCost' + x) * localStorage.getItem('quantity' + x);
-    sumTeddies = sumTeddies + parseInt(localStorage.getItem('unityCost' + x) * localStorage.getItem('quantity' + x));
+var tr = document.createElement("tr");
+tr.id="test" + x;
+const trContent="<tr>\
+<td class=\"idItem\">1</td>\
+<td class=\"nameItem\">LTS Versions</td>\
+<td class=\"custom\">none</td>\
+<td class=\"quantityItem\"></td>\
+<td><em class=\"unityCost\"></em>€</td>\
+<td><em class=\"totalCost\"></em>€</td>\
+</tr>"
+tr.innerHTML=trContent;
+
+const cartContainer = document.getElementById("tab");
+cartContainer.appendChild(tr);
+
+var containPanier = localStorage.getItem('panier' + x);
+containPanier = JSON.parse(containPanier);
+quantityItemsElt[x-1].textContent = containPanier.detail.quantity;
+idItemElt[x-1].textContent = containPanier.detail._id;
+nameItemElt[x-1].textContent = containPanier.detail.name;
+customItemElt[x-1].textContent = containPanier.detail.value;
+unityCostElt[x-1].textContent = containPanier.detail.unitPrice;
+totalCostElt[x-1].textContent = containPanier.detail.totalPrice;
+
 
 }
 
 
 
-    
-/*     if(x>=5 && x<10){
-        quantityItemsElt[x].textContent = localStorage.getItem('camera' + x%5);
-        idItemElt[x].textContent = localStorage.getItem('idCamera' + x);
-        nameItemElt[x].textContent = localStorage.getItem('nameCamera' + x);
-        unityCostElt[x].textContent = localStorage.getItem('unityCost' + x);
-        totalCostElt[x].textContent = localStorage.getItem('unityCost' + x) * localStorage.getItem('camera' + x%5);
-        sumCamera = sumCamera + parseInt(localStorage.getItem('unityCost' + x) * localStorage.getItem('camera' + x%5));
-        }
-    if(x>=10 && x<15){
-        quantityItemsElt[x].textContent = localStorage.getItem('furniture' + x%5);
-        idItemElt[x].textContent = localStorage.getItem('idFurniture' + x%5);
-        nameItemElt[x].textContent = localStorage.getItem('nameFurniture' + x%5);
-        unityCostElt[x].textContent = localStorage.getItem('unityCost' + x%5);
-        totalCostElt[x].textContent = localStorage.getItem('unityCost' + x%5) * localStorage.getItem('furniture' + x%5);
-        sumFurniture = sumFurniture + parseInt(localStorage.getItem('unityCost' + x%5) * localStorage.getItem('furniture' + x%5));
-        } */
 
-
-totalCartElt[0].textContent = sumTeddies + sumCamera + sumFurniture;
 
 
 

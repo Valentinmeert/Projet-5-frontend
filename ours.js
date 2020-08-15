@@ -1,12 +1,9 @@
-
 var imgElt = document.getElementsByClassName("card-img-top");
 const priceElt = document.getElementsByClassName('price');
 const cardTextElt = document.getElementsByClassName('card-text');
 const cardNameElt = document.getElementsByClassName('addCart');
-let productNumbers = 0;
-let countTeddies = 0;
-var requestTeddies = new XMLHttpRequest();
 
+var requestTeddies = new XMLHttpRequest();
 requestTeddies.onreadystatechange = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
         var response = JSON.parse(this.responseText);
@@ -35,9 +32,9 @@ for (let i=0; i<carts.length; i++) {
     })
 }
 
-
 function teddiesSelect(x) {
     localStorage.setItem('teddiesSelect' , x);
+    localStorage.setItem('categoryItem' , 'teddie');
 };
 
 
