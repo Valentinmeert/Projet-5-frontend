@@ -5,9 +5,11 @@ var unityCostElt = document.getElementsByClassName('unityCost');
 var totalCostElt = document.getElementsByClassName('totalCost');
 var totalCartElt = document.getElementsByClassName('totalCart');
 var customItemElt = document.getElementsByClassName('custom');
-var sumTeddies = sumCamera = sumFurniture = 0;
+var btnEraseElt = document.getElementsByClassName('erase');
+var sum = 0;
 var i = localStorage.getItem('teddiesSelect');
 var j = localStorage.getItem('cameraSelect');
+var k = localStorage.getItem('furnitureSelect');
 
 if(localStorage.getItem("categoryItem") == "teddie")
 {
@@ -49,6 +51,26 @@ localStorage.setItem('panier' + localStorage.getItem('itemNumbers'), JSON.string
 
 }
 
+if(localStorage.getItem("categoryItem") == "furniture")
+{
+const panier=
+{
+    detail: {
+        name: localStorage.getItem('nameFurniture' + k),
+        quantity: localStorage.getItem('quantityFurniture'), 
+        category: localStorage.getItem('categoryItem'),
+        _id: localStorage.getItem('idFurniture' + k),
+        value: localStorage.getItem('colorFurniture' + k),
+        unitPrice: localStorage.getItem('furnitureUnityCost' + k),
+        totalPrice: localStorage.getItem('furnitureUnityCost' + k) * localStorage.getItem('quantityFurniture')
+    }
+}
+
+
+localStorage.setItem('panier' + localStorage.getItem('itemNumbers'), JSON.stringify(panier));
+
+}
+
 
 for(x=1; x<=localStorage.getItem('itemNumbers') ; x++){
     
@@ -75,9 +97,19 @@ nameItemElt[x-1].textContent = containPanier.detail.name;
 customItemElt[x-1].textContent = containPanier.detail.value;
 unityCostElt[x-1].textContent = containPanier.detail.unitPrice;
 totalCostElt[x-1].textContent = containPanier.detail.totalPrice;
-
+sum = sum + containPanier.detail.totalPrice;
+totalCartElt[0].textContent = sum ;
 
 }
+
+btnEraseElt[0].addEventListener('click' , () => {
+
+    for(x=0 ; x<=localStorage.getItem('itemNumbers'); x++){
+        localStorage.removeItem('panier' + x);
+        
+    }
+    localStorage.removeItem('itemNumbers');
+})
 
 
 

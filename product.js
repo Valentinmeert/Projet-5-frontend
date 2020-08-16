@@ -2,6 +2,7 @@ var imgElt = document.getElementsByClassName("card-img");
 
 var indiceTeddies = localStorage.getItem('teddiesSelect');
 var indiceCamera = localStorage.getItem('cameraSelect');
+var indiceFurniture = localStorage.getItem('furnitureSelect');
 
 var selectElt = document.getElementById("quantity");
 var customElt = document .getElementById("colors");
@@ -9,6 +10,7 @@ var btnElt = document.getElementsByClassName("btn-success");
 console.log(btnElt);
 var colorTab = [];
 var lensesTab = [];
+var varnishTab = [];
 
 function createRow() {
 var option = document.createElement("option");
@@ -117,10 +119,57 @@ if(localStorage.getItem('categoryItem') == "camera"){
         }
         
         })
-
-
-
 }
 
+
+if(localStorage.getItem('categoryItem') == "furniture"){
+
+    var requestFurniture = new XMLHttpRequest();
+    requestFurniture.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var response = JSON.parse(this.responseText);
+            for (let i=0; i < response.length; i++){
+                varnishTab[i] = response[i].varnish;
+                createRow();
+            }
+            let perso = document.getElementById("colors").getElementsByClassName("perso");
+            
+                for(x=0 ; x<varnishTab[indiceFurniture].length ; x++)  {
+                    perso[x].textContent = varnishTab[indiceFurniture][x];
+                    
+                }
+        }
+    }
+    requestFurniture.open("GET", "http://localhost:3000/api/furniture");
+    requestFurniture.send();
+    
+    imgElt[0].setAttribute('src' , localStorage.getItem('imgFurniture' + localStorage.getItem('furnitureSelect')) );
+    selectElt.addEventListener('change', () => {
+        var index = selectElt.selectedIndex;
+        localStorage.setItem('quantityFurniture' , index);
+        console.log(index);
+
+    })
+    customElt.addEventListener('change', () => {
+        
+        var custom = customElt.options[customElt.selectedIndex].text;
+        localStorage.setItem('colorFurniture' + indiceFurniture , custom);
+        console.log(custom);
+        
+    })
+
+    btnElt[0].addEventListener('click', () => {
+        ItemNumbersElt = localStorage.getItem('itemNumbers');
+        ItemNumbersElt = parseInt(localStorage.getItem('itemNumbers'));
+        if(ItemNumbersElt){
+            localStorage.setItem('itemNumbers' , ItemNumbersElt + 1);
+            
+        }
+        else {
+            localStorage.setItem('itemNumbers' , 1);
+        }
+        
+        })
+}
 
 

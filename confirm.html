@@ -23,12 +23,12 @@
     <div class="container">
         <div class="row main">
             <div class="main-login main-center m-auto">
-                <form class="form-horizontal  " method="post" action="#">
+                <form class="form-horizontal  " method="post" action="recap.html">
                     <div class="form-group">
                         <label for="name" class="cols-sm-2 control-label ">Nom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="name" id="name"  placeholder="Votre nom"/>
+                                <input type="text" pattern="[a-zA-Z]{1,20}" class="form-control" name="name" id="name" required placeholder="Votre nom"/>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <label for="surname" class="cols-sm-2 control-label">Prénom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="surname" id="surname"  placeholder="Votre prénom"/>
+                                <input type="text" pattern="[a-zA-Z]{1,20}" class="form-control" name="surname" id="surname" required placeholder="Votre prénom"/>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <label for="mail" class="cols-sm-2 control-label">Email</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="mail" id="mail"  placeholder="Votre email"/>
+                                <input type="email"  class="form-control" name="mail" id="mail"  placeholder="Votre email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" />
                             </div>
                         </div>
                     </div>
@@ -55,21 +55,29 @@
                         <label for="adress" class="cols-sm-2 control-label">Adresse</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="adress" class="form-control" name="adress" id="adress"  placeholder="Votre adresse"/>
+                                <input type="text"  class="form-control" pattern="[a-zA-Z0-9]{1,20}"name="adress" id="adress" required placeholder="Votre adresse"/>
                             </div>
                         </div>
                     </div>
 
-                    
-                    <a class="btn btn-primary" href="recap.html" role="button">Valider</a>
-                    
+                    <div class="form-group">
+                        <label for="adress" class="cols-sm-2 control-label">Ville</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <input type="text"  class="form-control" pattern="[a-zA-Z]{1,20}" name="city" id="city" required placeholder="Votre ville"/>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <button class="btn btn-primary" id="btn" type="submit" disabled>Valider</button>
                 </form>
+                
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="confirm.js"></script>
 </body>
 </html>
