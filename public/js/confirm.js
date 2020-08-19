@@ -1,15 +1,21 @@
-myInput = document.getElementById("name");
+myName = document.getElementById("name");
+mySurname = document.getElementById("surname");
+myEmail = document.getElementById("mail");
+myAdress = document.getElementById("adress");
+myCity = document.getElementById("city");
 myBtn = document.getElementById("btn");
 
-myInput.addEventListener('input', function(e) {
-    if (myInput.validity.valid == true) {
+
+/* myName.addEventListener('input', function(e) {
+    
+    if (myName.validity.valid == true) {
         
         myBtn.disabled = false ;
         
     } else {
         myBtn.disabled = true ;
     }
-}, false);
+}, ); */
 
 
 
@@ -31,7 +37,7 @@ myBtn.addEventListener('click' , function(e) {
             let data = JSON.parse(this.response);
             console.log(data.orderId);
             localStorage.setItem('orderId' , data.orderId);
-            window.location.href = "recap.html"
+            /* window.location.href = "recap.html" */
         }
     } , cart , "application/JSON");
 })

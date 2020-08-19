@@ -25,18 +25,21 @@
 <div class="card w-50 m-auto">
 <img class="card-img" src="http://placehold.it/700x400" alt="">
     <div class="card-body">
-        <form method="get" action="cart.html">
-            <div class="form-group">
-                <label for="colors">Personnalisation</label>
-                <select class="custom-select" id="colors" required>
-                    <option selected hidden disabled value="">Couleur</option>
-                </select>
-                <input type="number" class="form-control" id="quantity" min="1" required placeholder="Quantité">
+        <form action="cart.html" method="get" class="form-example">
+            <div class="form-example">
+                <label for="quantity">Quantité </label>
+                <input type="number" name="quantity" id="quantity" min="1" class="form-control" placeholder="Quantité" required>
             </div>
-            <button type="submit" class="btn btn-success btn-lg btn-block text-uppercase ">
-                <i class="fa fa-shopping-cart"></i> Ajouter au panier
-            </button>
-        </form>
+            <div class="form-example">
+                <label for="colors">Perso </label>
+                <select name="colors" id="colors" class="custom-select">
+                <option selected hidden required disabled value="">Couleur</option>
+                </select>
+            </div>
+            <div class="form-example">
+                <input type="submit" class="btn btn-lg btn-block text-uppercase" value="Ajouter au panier">
+            </div>
+            </form>
     </div>
 </div>
 

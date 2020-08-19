@@ -2,7 +2,7 @@ var imgElt = document.getElementsByClassName("card-img");
 
 var selectElt = document.getElementById("quantity");
 var customElt = document .getElementById("colors");
-var btnElt = document.getElementsByClassName("btn-success");
+var btnElt = document.getElementsByClassName("btn");
 
 
 function createColorOption(color) {
@@ -16,6 +16,10 @@ function createColorOption(color) {
 function setImageSource(url){
     imgElt[0].setAttribute('src' , url);
 }
+console.log(customElt.validity);
+customElt.addEventListener('change' , function(e){
+console.log(customElt.validity);
+})
 const productId = window.location.search.split("=")[1];
 fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
@@ -24,9 +28,12 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             createColorOption(response.colors[i]);
             setImageSource(response.imageUrl);
         }
+        
         btnElt[0].addEventListener('click' , function(e){
+            
             e.preventDefault();
             e.stopPropagation();
+            if(selectElt.validity.valid == true){
             const selectedQuantity = +selectElt.value;
             const selectedColor = customElt.value;
             const cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -46,7 +53,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             }
             localStorage.setItem('cart' , JSON.stringify(cart));
             window.location.href = "cart.html";
-        })
+        }})
     }
 })
 
