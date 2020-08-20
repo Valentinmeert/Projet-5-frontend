@@ -1,7 +1,7 @@
 var imgElt = document.getElementsByClassName("card-img-top");
-const priceElt = document.getElementsByClassName('price');
-const cardTextElt = document.getElementsByClassName('card-text');
-const cardNameElt = document.getElementsByClassName('addCart');
+const priceElt = document.getElementsByClassName("price");
+const cardTextElt = document.getElementsByClassName("card-text");
+const cardNameElt = document.getElementsByClassName("addCart");
 
 function createCard(data){
     var card = document.createElement("div");
@@ -35,7 +35,7 @@ fetcher("GET", "http://localhost:3000/api/teddies", function() {
 let carts = document.querySelectorAll(".addCart");
 
 for (let i=0; i<carts.length; i++) {
-    carts[i].addEventListener('click', () => {
+    carts[i].addEventListener("click", () => {
     })
 }
 

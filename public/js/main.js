@@ -9,7 +9,7 @@ var btnEraseElt = document.getElementsByClassName("erase");
 var sum = 0;
 
 
-const cart = JSON.parse(localStorage.getItem('cart')) || {};
+const cart = JSON.parse(localStorage.getItem("cart")) || {};
 Object.keys(cart).forEach(function(productIdentifier){
     const productInfo = cart[productIdentifier];
     console.log(productInfo);
@@ -34,7 +34,7 @@ Object.keys(cart).forEach(function(productIdentifier){
             localStorage.setItem("orderPrice" , totalCartElt[0].textContent);
         }
     });
-})
+});
 
 btnEraseElt[0].addEventListener("click" , () => {
     localStorage.removeItem("cart");

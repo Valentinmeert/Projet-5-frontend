@@ -14,7 +14,7 @@ function createColorOption(color) {
 }
 
 function setImageSource(url){
-    imgElt[0].setAttribute('src' , url);
+    imgElt[0].setAttribute("src" , url);
 }
 
 const productId = window.location.search.split("=")[1];
@@ -37,12 +37,12 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             console.log(cart);
 
             
-            if(cart[response._id + selectedColor] == null ){
+            if(cart[response._id + selectedColor] === null ){
                 const product = {
                     _id: response._id ,
                     color: selectedColor ,
                     quantity: selectedQuantity 
-                }
+                };
                 cart[response._id + selectedColor]= product;
             }
             else{
@@ -50,9 +50,9 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             }
             localStorage.setItem("cart" , JSON.stringify(cart));
             window.location.href = "cart.html";
-        }})
+        }});
     }
-})
+});
 
 
 
