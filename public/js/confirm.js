@@ -27,8 +27,6 @@ myBtn.addEventListener("click" , function(e) {
         
         products: prodTab,
     };
-
-    console.log(cart);
     fetcher("POST" , "http://localhost:3000/api/teddies/order" , function() {
         if(this.readyState === 4 && this.status === 201){
             let data = JSON.parse(this.response);

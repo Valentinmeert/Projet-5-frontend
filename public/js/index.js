@@ -6,7 +6,6 @@ const cardNameElt = document.getElementsByClassName("addCart");
 function createCard(data){
     var card = document.createElement("div");
     card.className="col-lg-4 col-md-6 mb-4 mt-4";
-    console.log(data);
     card.innerHTML =`
     <div class="card h-100">
         <a href="product.html?id=${data._id}"><img class="card-img-top" src="${data.imageUrl}" alt=""></a>
