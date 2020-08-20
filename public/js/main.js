@@ -31,6 +31,7 @@ Object.keys(cart).forEach(function(productIdentifier){
             const cartContainer = document.getElementById("tab");
             cartContainer.appendChild(tr);
             totalCartElt[0].textContent = +totalCartElt[0].textContent + (response.price / 100) * productInfo.quantity;
+            localStorage.setItem("orderPrice" , totalCartElt[0].textContent);
         }
     });
 })

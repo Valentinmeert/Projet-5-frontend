@@ -16,10 +16,7 @@ function createColorOption(color) {
 function setImageSource(url){
     imgElt[0].setAttribute('src' , url);
 }
-console.log(customElt.validity);
-customElt.addEventListener('change' , function(e){
-console.log(customElt.validity);
-})
+
 const productId = window.location.search.split("=")[1];
 fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
