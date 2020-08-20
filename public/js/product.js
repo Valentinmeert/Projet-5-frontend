@@ -34,7 +34,6 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             const selectedQuantity = +selectElt.value;
             const selectedColor = customElt.value;
             const cart = JSON.parse(localStorage.getItem("cart")) || {};
-            console.log(cart);
 
             
             if(cart[response._id + selectedColor] === null ){

@@ -14,7 +14,7 @@ myBtn.addEventListener("click" , function(e) {
     e.preventDefault();
     e.stopPropagation();
     if(myName.validity.valid === true && mySurname.validity.valid === true && myEmail.validity.valid === true && myAdress.validity.valid === true && myCity.validity.valid === true){
-        console.log(prodTab);
+
         const cart = {
         
         contact: {
@@ -32,7 +32,7 @@ myBtn.addEventListener("click" , function(e) {
     fetcher("POST" , "http://localhost:3000/api/teddies/order" , function() {
         if(this.readyState === 4 && this.status === 201){
             let data = JSON.parse(this.response);
-            console.log(data.orderId);
+
             localStorage.setItem("orderId" , data.orderId);
             window.location.href = "recap.html";
         }

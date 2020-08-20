@@ -12,7 +12,7 @@ var sum = 0;
 const cart = JSON.parse(localStorage.getItem("cart")) || {};
 Object.keys(cart).forEach(function(productIdentifier){
     const productInfo = cart[productIdentifier];
-    console.log(productInfo);
+
     fetcher("GET" , "http://localhost:3000/api/teddies/" + productInfo._id , function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
             var response = JSON.parse(this.responseText);
@@ -38,6 +38,6 @@ Object.keys(cart).forEach(function(productIdentifier){
 
 btnEraseElt[0].addEventListener("click" , () => {
     localStorage.removeItem("cart");
-})
+});
 
 
