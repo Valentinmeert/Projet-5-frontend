@@ -17,7 +17,7 @@ function createCard(data){
             <h5><em class="price">${data.price/100}</em> €</h5>
             <p class="card-text">${data.description}</p>
         </div>
-    </div>`
+    </div>`;
     const cardContainer = document.getElementById("row");
     cardContainer.appendChild(card);
 
@@ -26,14 +26,13 @@ function createCard(data){
 fetcher("GET", "http://localhost:3000/api/teddies", function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
         var response = JSON.parse(this.responseText);
-        console.log(response);
         for (let i=0; i < response.length; i++){
             createCard(response[i]);
         }
     }
-})
+});
 
-let carts = document.querySelectorAll('.addCart');
+let carts = document.querySelectorAll(".addCart");
 
 for (let i=0; i<carts.length; i++) {
     carts[i].addEventListener('click', () => {

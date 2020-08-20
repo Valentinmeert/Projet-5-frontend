@@ -26,14 +26,14 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             setImageSource(response.imageUrl);
         }
         
-        btnElt[0].addEventListener('click' , function(e){
+        btnElt[0].addEventListener("click" , function(e){
             
             e.preventDefault();
             e.stopPropagation();
-            if(selectElt.validity.valid == true){
+            if(selectElt.validity.valid === true){
             const selectedQuantity = +selectElt.value;
             const selectedColor = customElt.value;
-            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+            const cart = JSON.parse(localStorage.getItem("cart")) || {};
             console.log(cart);
 
             
@@ -48,7 +48,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             else{
                 cart[response._id + selectedColor].quantity += selectedQuantity ;
             }
-            localStorage.setItem('cart' , JSON.stringify(cart));
+            localStorage.setItem("cart" , JSON.stringify(cart));
             window.location.href = "cart.html";
         }})
     }

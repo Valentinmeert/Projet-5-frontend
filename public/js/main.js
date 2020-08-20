@@ -1,11 +1,11 @@
-var idItemElt = document.getElementsByClassName('idItem');
-var quantityItemsElt = document.getElementsByClassName('quantityItem');
-var nameItemElt = document.getElementsByClassName('nameItem');
-var unityCostElt = document.getElementsByClassName('unityCost');
-var totalCostElt = document.getElementsByClassName('totalCost');
-var totalCartElt = document.getElementsByClassName('totalCart');
-var customItemElt = document.getElementsByClassName('custom');
-var btnEraseElt = document.getElementsByClassName('erase');
+var idItemElt = document.getElementsByClassName("idItem");
+var quantityItemsElt = document.getElementsByClassName("quantityItem");
+var nameItemElt = document.getElementsByClassName("nameItem");
+var unityCostElt = document.getElementsByClassName("unityCost");
+var totalCostElt = document.getElementsByClassName("totalCost");
+var totalCartElt = document.getElementsByClassName("totalCart");
+var customItemElt = document.getElementsByClassName("custom");
+var btnEraseElt = document.getElementsByClassName("erase");
 var sum = 0;
 
 
@@ -36,8 +36,8 @@ Object.keys(cart).forEach(function(productIdentifier){
     });
 })
 
-btnEraseElt[0].addEventListener('click' , () => {
-    localStorage.removeItem('cart');
+btnEraseElt[0].addEventListener("click" , () => {
+    localStorage.removeItem("cart");
 })
 
 

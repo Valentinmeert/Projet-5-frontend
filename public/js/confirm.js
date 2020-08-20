@@ -10,7 +10,7 @@ let prodTab =[];
 for(x=0 ; x<Object.keys(test).length ; x++ ){
     prodTab[x] = Object.values(test)[x]._id; 
     }
-myBtn.addEventListener('click' , function(e) {
+myBtn.addEventListener("click" , function(e) {
     e.preventDefault();
     e.stopPropagation();
     if(myName.validity.valid == true && mySurname.validity.valid == true && myEmail.validity.valid == true && myAdress.validity.valid == true && myCity.validity.valid == true){
@@ -33,7 +33,7 @@ myBtn.addEventListener('click' , function(e) {
         if(this.readyState === 4 && this.status === 201){
             let data = JSON.parse(this.response);
             console.log(data.orderId);
-            localStorage.setItem('orderId' , data.orderId);
+            localStorage.setItem("orderId" , data.orderId);
             window.location.href = "recap.html"
         }
     } , cart , "application/JSON");
