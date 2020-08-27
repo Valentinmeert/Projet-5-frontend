@@ -18,9 +18,7 @@ function setImageSource(url){
 }
 
 const productId = window.location.search.split("=")[1];
-fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
-        var response = JSON.parse(this.responseText);
+fetcher("GET" , "http://localhost:3000/api/teddies/" + productId).then(function(response) {
         for (let i=0; i < response.colors.length; i++){
             createColorOption(response.colors[i]);
             setImageSource(response.imageUrl);
@@ -36,7 +34,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             const cart = JSON.parse(localStorage.getItem("cart")) || {};
 
             
-            if(cart[response._id + selectedColor] === null ){
+            if(cart[response._id + selectedColor] == null ){
                 const product = {
                     _id: response._id ,
                     color: selectedColor ,
@@ -50,7 +48,10 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId , function() {
             localStorage.setItem("cart" , JSON.stringify(cart));
             window.location.href = "cart.html";
         }});
-    }
+    
+})
+.catch(function(error) {
+    console.log(error);
 });
 
 

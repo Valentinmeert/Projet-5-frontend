@@ -22,14 +22,18 @@ function createCard(data){
 
 }
 
-fetcher("GET", "http://localhost:3000/api/teddies", function() {
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {  
-        var response = JSON.parse(this.responseText);
-        for (let i=0; i < response.length; i++){
-            createCard(response[i]);
-        }
+fetcher("GET", "http://localhost:3000/api/teddies").then(function(response) {
+    for (let i=0; i < response.length; i++){
+        createCard(response[i]);
     }
+})
+.catch(function (error) {
+    console.log(error);
 });
+
+
+
+
 
 let carts = document.querySelectorAll(".addCart");
 

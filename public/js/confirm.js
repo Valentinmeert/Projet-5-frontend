@@ -14,7 +14,6 @@ myBtn.addEventListener("click" , function(e) {
     e.preventDefault();
     e.stopPropagation();
     if(myName.validity.valid === true && mySurname.validity.valid === true && myEmail.validity.valid === true && myAdress.validity.valid === true && myCity.validity.valid === true){
-
         const cart = {
         
         contact: {
@@ -27,13 +26,9 @@ myBtn.addEventListener("click" , function(e) {
         
         products: prodTab,
     };
-    fetcher("POST" , "http://localhost:3000/api/teddies/order" , function() {
-        if(this.readyState === 4 && this.status === 201){
-            let data = JSON.parse(this.response);
-
+    fetcher("POST" , "http://localhost:3000/api/teddies/order", cart ,"application/JSON").then(function(data){
             localStorage.setItem("orderId" , data.orderId);
             window.location.href = "recap.html";
-        }
-    } , cart , "application/JSON");
+    });
 }
 });
