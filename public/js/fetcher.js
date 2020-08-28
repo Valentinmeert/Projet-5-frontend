@@ -22,6 +22,6 @@ function fetcher(method , url , data , dataType ){
             else {
                 reject(request.status);
             }
-        }
+        };
     });
 }
