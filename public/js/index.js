@@ -28,18 +28,14 @@ fetcher("GET", "http://localhost:3000/api/teddies").then(function(response) {
     }
 })
 .catch(function (error) {
-    console.log(error);
+
 });
-
-
-
-
 
 let carts = document.querySelectorAll(".addCart");
 
 for (let i=0; i<carts.length; i++) {
     carts[i].addEventListener("click", () => {
-    })
+    });
 }
 
 

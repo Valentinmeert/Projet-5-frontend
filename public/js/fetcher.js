@@ -4,7 +4,6 @@ function fetcher(method , url , data , dataType ){
 
         request.open(method , url);
         if(dataType !== undefined){
-            console.log("test");
             request.setRequestHeader("Content-type", dataType);
             request.send(JSON.stringify(data));
         }
@@ -21,9 +20,8 @@ function fetcher(method , url , data , dataType ){
                 resolve(JSON.parse(this.response));
             }
             else {
-                console.log("out");
                 reject(request.status);
             }
         }
-    })
+    });
 }
