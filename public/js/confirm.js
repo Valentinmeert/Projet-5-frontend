@@ -1,10 +1,10 @@
-myName = document.getElementById("name");
-mySurname = document.getElementById("surname");
-myEmail = document.getElementById("mail");
-myAdress = document.getElementById("adress");
-myCity = document.getElementById("city");
-myBtn = document.getElementById("btn");
-test = JSON.parse(localStorage.getItem("cart"));
+var myName = document.getElementById("name");
+var mySurname = document.getElementById("surname");
+var myEmail = document.getElementById("mail");
+var myAdress = document.getElementById("adress");
+var myCity = document.getElementById("city");
+var myBtn = document.getElementById("btn");
+var test = JSON.parse(localStorage.getItem("cart"));
 
 let prodTab =[];
 for(x=0 ; x<Object.keys(test).length ; x++ ){
