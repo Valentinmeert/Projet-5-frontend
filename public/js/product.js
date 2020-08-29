@@ -34,7 +34,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId).then(function(
             const cart = JSON.parse(localStorage.getItem("cart")) || {};
 
             
-            if(cart[response._id + selectedColor] === null ){
+            if(cart[response._id + selectedColor] == null ){
                 const product = {
                     _id: response._id ,
                     color: selectedColor ,
@@ -51,7 +51,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId).then(function(
     
 })
 .catch(function(error) {
-
+    console.log(error);
 });
 
 

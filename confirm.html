@@ -28,7 +28,7 @@
                         <label for="name" class="cols-sm-2 control-label ">Nom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" pattern="[a-zA-Z]{1,20}" class="form-control" name="name" id="name" required placeholder="Votre nom"/>
+                                <input type="text" pattern="[a-zA-Z -]{1,20}" class="form-control" name="name" id="name" required placeholder="Votre nom"/>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <label for="surname" class="cols-sm-2 control-label">Prénom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text" pattern="[a-zA-Z]{1,20}" class="form-control" name="surname" id="surname" required placeholder="Votre prénom"/>
+                                <input type="text" pattern="[a-zA-Z -]{1,20}" class="form-control" name="surname" id="surname" required placeholder="Votre prénom"/>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <label for="mail" class="cols-sm-2 control-label">Email</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="email"  class="form-control" name="mail" id="mail"  placeholder="Votre email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" />
+                                <input type="email"  class="form-control" name="mail" id="mail"  placeholder="Votre email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,25}" />
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <label for="adress" class="cols-sm-2 control-label">Adresse</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text"  class="form-control" pattern="[a-zA-Z0-9 ]+,[a-zA-Z0-9 ]{1,20}"name="adress" id="adress" required placeholder="Votre adresse"/>
+                                <input type="text"  class="form-control" pattern="[a-zA-Z0-9 ]+,[a-zA-Z0-9 -]{1,20}"name="adress" id="adress" required placeholder="Votre adresse"/>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <label for="adress" class="cols-sm-2 control-label">Ville</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="text"  class="form-control"  name="city" id="city" required pattern="[a-zA-Z]{1,20}" placeholder="Votre ville"/>
+                                <input type="text"  class="form-control"  name="city" id="city" required pattern="[a-zA-Z0-9 ]{1,20}" placeholder="Votre ville"/>
                             </div>
                         </div>
                     </div>
