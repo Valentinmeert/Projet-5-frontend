@@ -1,9 +1,7 @@
 var imgElt = document.getElementsByClassName("card-img");
-
 var selectElt = document.getElementById("quantity");
 var customElt = document .getElementById("colors");
 var btnElt = document.getElementsByClassName("btn");
-
 
 function createColorOption(color) {
     var option = document.createElement("option");

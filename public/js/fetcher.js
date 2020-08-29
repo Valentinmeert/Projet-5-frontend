@@ -11,7 +11,6 @@ function fetcher(method , url , data , dataType ){
             request.send();
         }
         request.onreadystatechange = function(){
-            console.log(this.status);
             if(request.readyState !== 4) return; 
             if(this.readyState === XMLHttpRequest.DONE && this.status === 200){
                 resolve(JSON.parse(this.responseText));
