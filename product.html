@@ -11,18 +11,19 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark ">
-    <div class="col-11">
-    <a class="navbar-brand" href="index.html"> <img src="public/images/titre.svg" width="125" height="50" class=""> </a>
-    </div>
-    <div class="col-1">
-        <a class="nav-link" href="cart.html">
-            <img src="public/images/logo.svg" width="50" height="50" class="">
-        </a>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+        
+        <div class="col-6">
+        <a class="navbar-brand" href="index.html"> <img src="public/images/titre.svg" width="125" height="50" class="float-left"> </a>
+        </div>
+        <div class="col-6">
+            <a class="nav-link" href="cart.html">
+                <img src="public/images/logo.svg" width="50" height="50" class="float-right">
+            </a>
+        </div>
+    </nav>
 
-<div class="card w-50 m-auto">
+<div class="card card-product m-auto">
 <img class="card-img" src="http://placehold.it/700x400" alt="">
     <div class="card-body">
         <form action="cart.html" method="get" class="form-example">
@@ -35,16 +36,16 @@
                 <select name="colors" id="colors" class="custom-select">
                 </select>
             </div>
-            <div class="form-example">
+            <div class="form-example ">
                 <input type="submit" class="btn btn-lg btn-block text-uppercase" value="Ajouter au panier">
             </div>
-            </form>
+        </form>
     </div>
 </div>
 
-<footer class="py-5 bg-dark">
-    <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">
+        © 2020 Copyright: Valentin Meert 
     </div>
 </footer>
 <script src="public/js/fetcher.js"></script>

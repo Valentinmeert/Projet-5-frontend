@@ -9,3 +9,16 @@ input:invalid {
 input:valid {
   border: 1px solid black;
 }
+
+.card-product{
+  width: 50%;
+}
+@media screen and (max-width: 760px) { 
+.card-footer{
+  flex-wrap: wrap;
+}
+.card-product{
+  width: 100%;
+}
+} 
+
