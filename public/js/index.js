@@ -19,7 +19,6 @@ function createCard(data){
     </div>`;
     const cardContainer = document.getElementById("row");
     cardContainer.appendChild(card);
-
 }
 
 fetcher("GET", "http://localhost:3000/api/teddies").then(function(response) {
@@ -28,7 +27,7 @@ fetcher("GET", "http://localhost:3000/api/teddies").then(function(response) {
     }
 })
 .catch(function (error) {
-
+    console.log(error);
 });
 
 let carts = document.querySelectorAll(".addCart");

@@ -21,7 +21,7 @@ fetcher("GET" , "http://localhost:3000/api/teddies/" + productId).then(function(
             createColorOption(response.colors[i]);
             setImageSource(response.imageUrl);
         }
-        
+        /* document.getElementsByClassName("perso") */
         btnElt[0].addEventListener("click" , function(e){
             
             e.preventDefault();

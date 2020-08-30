@@ -27,6 +27,7 @@ myBtn.addEventListener("click" , function(e) {
         products: prodTab,
     };
     fetcher("POST" , "http://localhost:3000/api/teddies/order", cart ,"application/JSON").then(function(data){
+            localStorage.removeItem("cart");
             localStorage.setItem("orderId" , data.orderId);
             window.location.href = "recap.html";
     });
